@@ -48,6 +48,7 @@
   programs.git.enable = true;
 
   home.packages = [
+    pkgs.awscli
     pkgs.glab
     pkgs.ranger
     pkgs.w3m
