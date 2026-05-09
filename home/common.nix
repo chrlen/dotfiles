@@ -77,6 +77,9 @@
       vim.opt.termguicolors = false
       vim.cmd.colorscheme("default")
 
+      -- use system clipboard for all yank/put operations
+      vim.opt.clipboard = "unnamedplus"
+
       -- clipboard keymaps
       vim.keymap.set({'n','v'}, '<C-S-c>', '"+y', { noremap = true })
       vim.keymap.set({'n','i','v'}, '<C-S-v>', '"+p', { noremap = true })
