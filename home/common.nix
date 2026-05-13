@@ -77,12 +77,19 @@
       vim.opt.termguicolors = false
       vim.cmd.colorscheme("default")
 
-      -- use system clipboard for all yank/put operations
+      -- OSC 52 clipboard provider: works over SSH in iTerm2 and Ghostty
+      vim.g.clipboard = {
+        name = 'OSC 52',
+        copy = {
+          ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
+          ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+        },
+        paste = {
+          ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
+          ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
+        },
+      }
       vim.opt.clipboard = "unnamedplus"
-
-      -- clipboard keymaps
-      vim.keymap.set({'n','v'}, '<C-S-c>', '"+y', { noremap = true })
-      vim.keymap.set({'n','i','v'}, '<C-S-v>', '"+p', { noremap = true })
 
       -- neo-tree
       require("neo-tree").setup({
