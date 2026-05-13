@@ -78,15 +78,16 @@
       vim.cmd.colorscheme("default")
 
       -- use system clipboard for all yank/put operations
-      if vim.fn.has('mac') == 1 then
-        vim.g.clipboard = {
-          name = 'pbcopy',
-          copy  = { ['+'] = 'pbcopy', ['*'] = 'pbcopy' },
-          paste = { ['+'] = 'pbpaste', ['*'] = 'pbpaste' },
-          cache_enabled = 0,
-        }
-      end
       vim.opt.clipboard = "unnamedplus"
+      -- on macOS in a terminal, neovim defers pbcopy until another app requests
+      -- the clipboard (never happens in a terminal). force an immediate write on yank.
+      if vim.fn.has('mac') == 1 then
+        vim.api.nvim_create_autocmd('TextYankPost', {
+          callback = function()
+            vim.fn.system('pbcopy', table.concat(vim.v.event.regcontents, '\n'))
+          end,
+        })
+      end
 
       -- neo-tree
       require("neo-tree").setup({
