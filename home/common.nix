@@ -78,7 +78,14 @@
       vim.cmd.colorscheme("default")
 
       -- use system clipboard for all yank/put operations
-      -- neovim auto-detects pbcopy/pbpaste on macOS and wl-copy/xclip on Linux
+      if vim.fn.has('mac') == 1 then
+        vim.g.clipboard = {
+          name = 'pbcopy',
+          copy  = { ['+'] = 'pbcopy', ['*'] = 'pbcopy' },
+          paste = { ['+'] = 'pbpaste', ['*'] = 'pbpaste' },
+          cache_enabled = 0,
+        }
+      end
       vim.opt.clipboard = "unnamedplus"
 
       -- neo-tree
