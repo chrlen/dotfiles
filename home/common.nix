@@ -77,18 +77,8 @@
       vim.opt.termguicolors = false
       vim.cmd.colorscheme("default")
 
-      -- OSC 52 clipboard provider: works over SSH in iTerm2 and Ghostty
-      vim.g.clipboard = {
-        name = 'OSC 52',
-        copy = {
-          ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
-          ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
-        },
-        paste = {
-          ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
-          ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
-        },
-      }
+      -- use system clipboard for all yank/put operations
+      -- neovim auto-detects pbcopy/pbpaste on macOS and wl-copy/xclip on Linux
       vim.opt.clipboard = "unnamedplus"
 
       -- neo-tree
