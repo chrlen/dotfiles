@@ -77,9 +77,17 @@
       vim.opt.termguicolors = false
       vim.cmd.colorscheme("default")
 
-      -- clipboard keymaps
-      vim.keymap.set({'n','v'}, '<C-S-c>', '"+y', { noremap = true })
-      vim.keymap.set({'n','i','v'}, '<C-S-v>', '"+p', { noremap = true })
+      -- use system clipboard for all yank/put operations
+      vim.opt.clipboard = "unnamedplus"
+      -- on macOS in a terminal, neovim defers pbcopy until another app requests
+      -- the clipboard (never happens in a terminal). force an immediate write on yank.
+      if vim.fn.has('mac') == 1 then
+        vim.api.nvim_create_autocmd('TextYankPost', {
+          callback = function()
+            vim.fn.system('pbcopy', table.concat(vim.v.event.regcontents, '\n'))
+          end,
+        })
+      end
 
       -- neo-tree
       require("neo-tree").setup({
