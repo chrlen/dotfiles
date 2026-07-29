@@ -127,31 +127,34 @@
     };
   };
 
+
   programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
-    initContent = lib.mkMerge [
-      (lib.mkBefore ''
-        ZSH_DISABLE_COMPFIX=true
-      '')
-      (lib.mkAfter ''
-        source ~/.config/zsh/functions.sh
-      '')
-    ];
+  enable = true;
+  enableCompletion = true;
+  autosuggestion.enable = true;
+  syntaxHighlighting.enable = true;
+  initContent = lib.mkMerge [
+    (lib.mkBefore ''
+      ZSH_DISABLE_COMPFIX=true
+      eval "$(/opt/homebrew/bin/brew shellenv)"
+    '')
+    (lib.mkAfter ''
+      source ~/.config/zsh/functions.sh
+    '')
+  ];
 
-    history = {
-      size = 10000;
-      path = "${config.xdg.dataHome}/zsh/history";
-    };
-
-    oh-my-zsh = {
-      enable = true;
-      plugins = [ "git" ];
-      theme = "obraun";
-    };
+  history = {
+    size = 10000;
+    path = "${config.xdg.dataHome}/zsh/history";
   };
+
+  oh-my-zsh = {
+    enable = true;
+    plugins = [ "git" ];
+    theme = "obraun";
+  };
+};
+
 
   home.sessionVariables = {
     EDITOR = "nvim";
