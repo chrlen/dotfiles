@@ -136,7 +136,6 @@
   initContent = lib.mkMerge [
     (lib.mkBefore ''
       ZSH_DISABLE_COMPFIX=true
-      eval "$(/opt/homebrew/bin/brew shellenv)"
     '')
     (lib.mkAfter ''
       source ~/.config/zsh/functions.sh
