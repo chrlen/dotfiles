@@ -73,7 +73,9 @@
       nvim-dap-ui
       neomutt-vim
     ];
-    extraLuaConfig = ''
+    withPython3 = false;
+    withRuby = false;
+    initLua = ''
       vim.opt.termguicolors = false
       vim.cmd.colorscheme("default")
 
