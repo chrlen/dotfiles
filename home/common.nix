@@ -142,6 +142,7 @@
       vim_mode = true;
       telemetry.diagnostics = false;
       telemetry.metrics = false;
+      ui.show_sign_in_button = false;
     };
   };
 
