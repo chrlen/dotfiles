@@ -27,5 +27,9 @@
       "watch"
       "wget"
     ];
+    casks = [
+      "zed"
+      "lapce"
+    ];
   };
 }

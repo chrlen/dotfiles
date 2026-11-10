@@ -129,23 +129,6 @@
     };
   };
 
-  programs.lapce = {
-    enable = !pkgs.stdenv.isDarwin;
-    settings = {
-      vim_mode = true;
-    };
-  };
-
-  programs.zed-editor = {
-    enable = true;
-    userSettings = {
-      vim_mode = true;
-      telemetry.diagnostics = false;
-      telemetry.metrics = false;
-      ui.show_sign_in_button = false;
-    };
-  };
-
   programs.zsh = {
   enable = true;
   enableCompletion = true;
