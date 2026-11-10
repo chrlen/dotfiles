@@ -136,6 +136,15 @@
     };
   };
 
+  programs.zed-editor = {
+    enable = true;
+    userSettings = {
+      vim_mode = true;
+      telemetry.diagnostics = false;
+      telemetry.metrics = false;
+    };
+  };
+
   programs.zsh = {
   enable = true;
   enableCompletion = true;
