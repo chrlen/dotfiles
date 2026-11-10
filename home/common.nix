@@ -129,6 +129,12 @@
     };
   };
 
+  programs.lapce = {
+    enable = true;
+    settings = {
+      vim_mode = true;
+    };
+  };
 
   programs.zsh = {
   enable = true;
