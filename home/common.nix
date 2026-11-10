@@ -130,7 +130,7 @@
   };
 
   programs.lapce = {
-    enable = true;
+    enable = !pkgs.stdenv.isDarwin;
     settings = {
       vim_mode = true;
     };
