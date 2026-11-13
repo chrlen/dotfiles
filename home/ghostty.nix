@@ -12,6 +12,10 @@
     window-decoration = true
     keybind = shift+grave_accent=text:~
     keybind = global:alt+z=toggle_quick_terminal
+    keybind = super+ctrl+h=goto_split:left
+    keybind = super+ctrl+j=goto_split:down
+    keybind = super+ctrl+k=goto_split:up
+    keybind = super+ctrl+l=goto_split:right
     background-opacity = 0.8
   '';
 }
