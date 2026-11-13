@@ -139,6 +139,9 @@
     };
   };
 
+  # GitHub CLI; log in afterwards with `gh auth login` (the token stays out of Nix)
+  programs.gh.enable = true;
+
   # cd replacement: `z <dir>` jumps to frequently used directories
   programs.zoxide = {
     enable = true;
