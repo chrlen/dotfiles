@@ -139,6 +139,27 @@
     };
   };
 
+  # cd replacement: `z <dir>` jumps to frequently used directories
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  # fuzzy finder: Ctrl-R history, Ctrl-T files, Alt-C directories
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  # cat replacement with syntax highlighting
+  programs.bat.enable = true;
+
+  # ls replacement (no zsh aliases: `ll` is already defined above)
+  programs.eza = {
+    enable = true;
+    enableZshIntegration = false;
+  };
+
   programs.zsh = {
   enable = true;
   enableCompletion = true;
