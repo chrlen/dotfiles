@@ -17,7 +17,6 @@
       "jenv"
       "ncdu"
       "nvm"
-      "openjdk"
       "poetry"
       "pyenv"
       "sops"
