@@ -1,0 +1,17 @@
+# Ghostty config for macOS. Ghostty is installed via Homebrew cask, so only the config is managed here.
+# Do not import on NixOS hosts: programs.ghostty writes the same path.
+{ ... }:
+
+{
+  home.file.".config/ghostty/config".text = ''
+    font-family = monospace
+    font-size = 14
+    theme = dark:Black Metal (Nile),light:Catppuccin Latte
+    window-padding-x = 8
+    window-padding-y = 8
+    window-decoration = true
+    keybind = shift+grave_accent=text:~
+    keybind = global:alt+z=toggle_quick_terminal
+    background-opacity = 0.8
+  '';
+}
