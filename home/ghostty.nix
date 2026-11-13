@@ -11,7 +11,7 @@
     window-padding-y = 8
     window-decoration = true
     keybind = shift+grave_accent=text:~
-    keybind = global:alt+z=toggle_quick_terminal
+    keybind = global:alt+x=toggle_quick_terminal
     keybind = super+ctrl+h=goto_split:left
     keybind = super+ctrl+j=goto_split:down
     keybind = super+ctrl+k=goto_split:up
