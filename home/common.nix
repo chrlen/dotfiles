@@ -121,6 +121,16 @@
     '';
   };
 
+  programs.tmux = {
+    enable = true;
+    # home-manager defaults to "screen"; tmux-256color keeps true colour working
+    terminal = "tmux-256color";
+    # use the terminal's ANSI colours for the status bar (tmux 3.8+)
+    extraConfig = ''
+      set -g theme terminal
+    '';
+  };
+
   programs.btop = {
     enable = true;
     settings = {
