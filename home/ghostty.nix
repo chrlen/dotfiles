@@ -17,6 +17,8 @@
     keybind = super+ctrl+k=goto_split:up
     keybind = super+ctrl+l=goto_split:right
     quick-terminal-size = 100%
+    quick-terminal-animation-duration = 0
+    quick-terminal-autohide = false
     background-opacity = 0.8
   '';
 }
